@@ -81,4 +81,3 @@ int main(){
     b ^= a;
     PR("b ^= a; b = ", b);
 }
-
