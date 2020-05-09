@@ -1,25 +1,23 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-	int i;
-	cout << "type a number and 'Enter'" << endl;
-	cin >> i;
-	(i > 5) ?
-		cout << "It's greater than 5" << endl
-        :
-		(i < 5)?
-		    cout << "It's less than 5 " << endl
-            :
-		    cout << "It's equal to 5 " << endl;
-			
-	cout << "type a number and 'Enter'" << endl;
-	cin >> i;
-	(i < 10) ?
-        (i > 5) ?
-            cout << "5 < i < 10" << endl
-            :
-            cout << "i <= 5" << endl
-	    :
-		cout << "i >= 10" << endl;
-} ///:~
+typedef struct Structure1
+{
+    string sr1;
+    string sr2;
+    int i;
+} Structure1;
+
+
+int main(){
+    Structure1 st1;
+    st1.i = 0;
+    st1.sr1 = "abc";
+    st1.sr2 = "def";
+    cout << st1.i << " " << st1.sr1 << " " << st1.sr2 << endl;
+    Structure1* stPtr = &st1;
+    stPtr->i = 1;
+    stPtr->sr1 = "changed abc";
+    stPtr->sr2 = "changed def";
+    cout << stPtr->i << " " << stPtr->sr1 << " " << stPtr->sr2 << endl;
+}
