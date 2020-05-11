@@ -11,13 +11,13 @@ const int increment = 100;
 void initialize(CStash* s, int sz) {
     s->size = sz;
     s->quantity = 0;
-    s->storage = 0;
+    s->storage = 0; // 不分配初始存储
     s->next = 0;
 }
 
 int add(CStash* s, const void* element) {
     if(s->next >= s->quantity) //Enough space left?
-        inflate(s, increment);
+        inflate(s, increment); // 没有可用空间则进行扩展
     // Copy element into storage,
     // starting at next empty space:
     int startBytes = s->next * s->size;
@@ -28,7 +28,8 @@ int add(CStash* s, const void* element) {
     return(s->next -1); //index number
 }
 
-void* fetch(CStash* s, int index){
+// fetch 获取变量地址
+void* fetch(CStash* s, int index){ 
     // check index boundaries:
     assert(0 <= index);
     if(index >= s->next)
@@ -37,6 +38,11 @@ void* fetch(CStash* s, int index){
     return &(s->storage[index * s->size]);
 }
 
+int count(CStash* s){
+    return s->next;
+}
+
+// 扩展，对旧的进行逐一复制
 void inflate(CStash* s,int increase) {
     assert(increase > 0);
     int newQuantity = s->quantity + increase;
