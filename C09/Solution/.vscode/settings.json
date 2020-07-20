@@ -1,0 +1,17 @@
+{
+    "files.exclude": {
+        "**/*.o": true,
+        "**/*.exe": true,
+        "**/*.class": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp",
+        "fstream": "cpp"
+    }
+}
