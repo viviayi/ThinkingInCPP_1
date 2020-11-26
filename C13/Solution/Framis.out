@@ -1,0 +1,4 @@
+local new for framis takes time: 1
+local delete for framis takes time: 0
+global new for framis takes time: 0
+global delete for framis takes time: 0
