@@ -5,10 +5,6 @@
 #include <string>
 using namespace std;
 
-std::ostream& operator<<(ostream& os, const Asteroid& a){
-    os << a.data << " ";
-    return os;
-}
 
 int main(){
     AStash as;
@@ -17,7 +13,7 @@ int main(){
         as.add(new Asteroid(i));
     }
     for(int j = 0; j < as.count(); j++){
-        cout << "AsteroidStash[" << j << "] = " << as[j] << endl;
+        cout << "AsteroidStash[" << j << "] = " << *as[j] << endl;
     }
     // Clean up:
     for(int k = 0; k < as.count(); k++){

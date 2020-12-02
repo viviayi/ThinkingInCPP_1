@@ -15,10 +15,10 @@ class Asteroid {
 public:
     Asteroid() : data(0) {}
     Asteroid(int a) : data(a) {}
-    friend ostream& operator<<(ostream& os, const Asteroid& ia);
+    friend std::ostream& operator<<(std::ostream& os, const Asteroid& ia);
 };
 
-ostream& operator<<(ostream& os, const Asteroid& ia){
+std::ostream& operator<<(std::ostream& os, const Asteroid& ia){
     os << ia.data << " ";
     return os;
 }
