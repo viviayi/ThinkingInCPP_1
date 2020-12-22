@@ -31,7 +31,8 @@ public:
     }
 };
 
-void foo(B b) {
+// void foo(B b) {// 不使用引用会被切片
+void foo(B& b) {  
     b.f();
 }
 
