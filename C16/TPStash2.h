@@ -3,6 +3,7 @@
 #define TPSTASH2_H
 #include "../require.h"
 #include <cstdlib>
+#include <string.h>
 
 template<class T, int incr = 20>
 class PStash{
@@ -52,13 +53,13 @@ public:
         iterator& operator+=(int amount){
             require(index + amount <  ps.next && index + amount >= 0,
                     "PStash::iterator::operator+= attempt to index out of bounds");
-            index += amout;
+            index += amount;
             return *this;
         }
         iterator& operator-=(int amount){
             require(index - amount <  ps.next && index - amount >= 0,
                     "PStash::iterator::operator-= attempt to index out of bounds");
-            index -= amout;
+            index -= amount;
             return *this;
         }
         // Create a new iterator that's moved forward
@@ -71,7 +72,7 @@ public:
             return ps.storage[index];
         }
         T* operator*() const{
-            return current;
+            return current();
         }
         T* operator->() const{
             require(ps.storage[index] != 0, "PStash::iterator::operator->returns 0");
